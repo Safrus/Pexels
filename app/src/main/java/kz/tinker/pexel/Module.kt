@@ -7,13 +7,19 @@ import com.google.gson.GsonBuilder
 import kz.tinker.pexel.data.api.PexelApi
 import kz.tinker.pexel.data.repository.PhotoRepository
 import kz.tinker.pexel.ui.main.viewmodel.PhotoViewModel
+import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Request
+import okhttp3.Response
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.IOException
 import java.util.concurrent.TimeUnit
+
+const val API_KEY = "563492ad6f917000010000013305ed5e40cd4ea9964c37034d0762f3"
 
 val viewModelModule = module {
     viewModel {
@@ -51,12 +57,23 @@ val retrofitModule = module {
         }
     }
 
+    fun getAuthInterceptor(): Interceptor {
+        return object : Interceptor {
+            @Throws(IOException::class)
+            override fun intercept(chain: Interceptor.Chain): Response {
+                val request: Request = chain.request().newBuilder()
+                    .addHeader("Authorization", API_KEY).build()
+                return chain.proceed(request)
+            }
+        }
+    }
+
     fun provideHttpClient(): OkHttpClient {
         val okHttpClientBuilder = OkHttpClient.Builder()
+            .addInterceptor(getAuthInterceptor())
             .addInterceptor(getLoggingInterceptor())
             .connectTimeout(60, TimeUnit.SECONDS)
             .readTimeout(60, TimeUnit.SECONDS)
-            .addInterceptor(getLoggingInterceptor())
 
         return okHttpClientBuilder.build()
     }

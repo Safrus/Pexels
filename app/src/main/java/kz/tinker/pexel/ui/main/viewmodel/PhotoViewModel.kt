@@ -3,7 +3,6 @@ package kz.tinker.pexel.ui.main.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import kz.tinker.pexel.data.model.CuratedPhotos
 import kz.tinker.pexel.data.model.Photo
 import kz.tinker.pexel.data.repository.PhotoRepository
 import kz.tinker.pexel.utils.LoadingState
