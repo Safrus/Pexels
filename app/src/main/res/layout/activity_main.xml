@@ -11,16 +11,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         tools:text="TextView" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="381dp"
-        android:layout_height="254dp"
+        android:layout_width="276dp"
+        android:layout_height="139dp"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
