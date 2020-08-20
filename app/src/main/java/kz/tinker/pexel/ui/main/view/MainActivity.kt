@@ -12,7 +12,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class MainActivity : AppCompatActivity() {
 
     private val curatedPhotosViewModel by viewModel<CuratedPhotosViewModel>()
-    private val photoViewModel by viewModel<PhotoViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,8 +28,5 @@ class MainActivity : AppCompatActivity() {
             textView.text = photographersName
         })
 
-        /*photoViewModel.data.observe(this, Observer {
-            textView.text = it.photographer
-        })*/
     }
 }

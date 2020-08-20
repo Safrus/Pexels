@@ -1,5 +1,6 @@
 package kz.tinker.pexel.ui.main.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -15,7 +16,7 @@ class CuratedPhotosViewModel(private val curatedPhotosRepository: CuratedPhotosR
     private val mutableCuratedPhotosLiveData = MutableLiveData<List<Photo>>()
     private var getCuratedPhotosJob: Job? = null
 
-    val curatedPhotosLiveData = mutableCuratedPhotosLiveData
+    val curatedPhotosLiveData: LiveData<List<Photo>> = mutableCuratedPhotosLiveData
 
     fun getCuratedPhotos() {
         getCuratedPhotosJob = viewModelScope.launch {
