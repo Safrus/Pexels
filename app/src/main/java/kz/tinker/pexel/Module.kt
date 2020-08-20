@@ -5,7 +5,9 @@ import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import kz.tinker.pexel.data.api.PexelApi
+import kz.tinker.pexel.data.repository.CuratedPhotosRepository
 import kz.tinker.pexel.data.repository.PhotoRepository
+import kz.tinker.pexel.ui.main.viewmodel.CuratedPhotosViewModel
 import kz.tinker.pexel.ui.main.viewmodel.PhotoViewModel
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -25,11 +27,17 @@ val viewModelModule = module {
     viewModel {
         PhotoViewModel(get())
     }
+    viewModel {
+        CuratedPhotosViewModel(get())
+    }
 }
 
 val repositoryModule = module {
     single {
         PhotoRepository(get())
+    }
+    single {
+        CuratedPhotosRepository(get())
     }
 }
 
