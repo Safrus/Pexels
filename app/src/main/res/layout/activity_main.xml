@@ -4,25 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="kz.tinker.MainActivity"
-    android:orientation="vertical">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/searchbar"
-
-        />
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/trendinglayout"
-        android:background="@color/colorDirtyWight"
-        />
-   <androidx.recyclerview.widget.RecyclerView
-       android:layout_width="match_parent"
-       android:id="@+id/recyclerView"
-       android:layout_height="wrap_content"
-       tools:listitem="@layout/main_list_item"/>
-
+    android:orientation="vertical"
+    tools:context="kz.tinker.MainActivity">
 </androidx.appcompat.widget.LinearLayoutCompat>

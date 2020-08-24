@@ -15,24 +15,5 @@ class MainActivity : AppCompatActivity() {
         setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-        val  itemList = ArrayList<Model>()
-
-        itemList.add(Model("Alan Shell", 7,1))
-        itemList.add(Model("Romeo Boll",8, 2))
-        itemList.add(Model("Harry Brown", 9,3))
-        itemList.add(Model("Nikola Smith", 10,4))
-        itemList.add(Model("Georgie Kim", 11, 5))
-        itemList.add(Model("Kana Kasteev", 12, 6))
-
-        val myAdapter= MyAdapter(itemList,this)
-
-        recyclerView.layoutManager=LinearLayoutManager(this)
-        recyclerView.adapter= myAdapter
-
-
-
-
-
     }
 }
