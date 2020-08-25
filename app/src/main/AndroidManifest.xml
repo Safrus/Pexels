@@ -20,5 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="kz.tinker.ItemDetail"
+            android:parentActivityName="kz.tinker.MainActivity"/>
     </application>
+
 </manifest>

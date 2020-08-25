@@ -25,7 +25,6 @@ class MainActivity : AppCompatActivity() {
             for (photo in photos) {
                 photographersName += ", ${photo.photographer}"
             }
-            textView.text = photographersName
         })
 
     }
