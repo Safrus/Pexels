@@ -1,15 +1,10 @@
 <resources>
-    <!-- Base application theme. -->
+
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- Customize your theme here. -->
-
         <item name="colorPrimaryDark">#000000</item>
-
     </style>
 
-    <style name="ColorPexel.Button" parent ="Widget.MaterialComponents.Button">
-      <item name="android:background">@color/colorLogoGreen</item>
+    <style name="AppTheme.Launcher">
+        <item name="android:windowBackground">@drawable/launch_screen</item>
     </style>
-
-
 </resources>
