@@ -1,6 +1,6 @@
 package kz.tinker
 
-class Model(val name:String, user:Int, age: Int) {
+data class Model(val name:String, val user:Int,  val age: Int) {
     val imageUrl="https://picsum.photos/150?random=$age"
     val userUrl="https://picsum.photos/150?random=$user"
 }

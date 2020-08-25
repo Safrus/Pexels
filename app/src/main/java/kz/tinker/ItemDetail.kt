@@ -15,22 +15,15 @@ class ItemDetail : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_item_detail)
         val actionBar: ActionBar? = supportActionBar
-
         actionBar?.setDisplayHomeAsUpEnabled(true)
-
         actionBar?.setDisplayShowHomeEnabled(true)
-
-
         var intent = intent
         val aTitle = intent.getStringExtra("iTitle")
         val aUserView = intent.getIntExtra("iImageView", 0)
         val aImageView = intent.getIntExtra("iUserView", 0)
-
         actionBar?.setTitle(aTitle)
-
         a_title.text = aTitle
         imageView.setImageResource(aUserView)
-        imageView.setImageResource(aImageView)
-
+        a_des.setImageResource(aImageView)
     }
 }

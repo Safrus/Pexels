@@ -4,46 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="kz.tinker.ItemDetail"
     android:gravity="center"
-    >
-
+    tools:context="kz.tinker.ItemDetail">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="338dp"
-        android:layout_height="283dp"
+        android:layout_width="400dp"
+        android:layout_height="314dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="45dp"
-        android:layout_marginTop="62dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="314dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginBottom="345dp"
         android:src="@drawable/ic_baseline_account_circle_24"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/iconCircleImageView1"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/a_des"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:layout_alignParentStart="true"
-
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="14dp"
-        android:layout_marginBottom="160dp"
-        android:src="@drawable/ic_baseline_account_circle_24"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.044"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/photo"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="-130dp"
+        android:layout_marginBottom="28dp"
+        android:elevation="5dp"
+        android:padding="2dp"
+        android:scaleType="centerCrop"
+        app:civ_border_color="#FFFFFFFF"
+        app:civ_border_width="3dp" />
 
     <TextView
         android:id="@+id/a_title"
@@ -53,13 +47,12 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="283dp"
         android:layout_marginBottom="172dp"
-        android:text="Line1"
+        android:text="looonhohohohoo"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.089"
-        app:layout_constraintTop_toBottomOf="@+id/photo"
-        app:layout_constraintVertical_bias="0.073" />
+        app:layout_constraintTop_toBottomOf="@+id/user" />
 
 </RelativeLayout>
