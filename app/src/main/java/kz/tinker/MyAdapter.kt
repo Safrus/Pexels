@@ -12,16 +12,21 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.main_list_item.view.*
 import kz.tinker.pexel.R
+import kz.tinker.pexel.data.model.CuratedPhotos
 
 class MyAdapter(private val itemList: ArrayList<Model>, val context: MainActivity) :
     RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private lateinit var model :Model
         fun bindItems(model: Model) {
-            itemView.textLine1.text = model.name
-            Glide.with(itemView).load(model.imageUrl).into(itemView.photo)
-            Glide.with(itemView).load(model.userUrl).into(itemView.user)
+            this.model=model
+            itemView.textLine1.setTextDrawable(itemView.context.getDrawable(model.drawable))
+            itemView.textLine1.text=model.name
+           // itemView.textLine1.text = model.name
+            //Glide.with(itemView).load(model.imageUrl).into(itemView.photo)
+          //  Glide.with(itemView).load(model.userUrl).into(itemView.user)
 
 
         }

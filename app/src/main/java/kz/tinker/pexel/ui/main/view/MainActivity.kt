@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         curatedPhotosViewModel.getCuratedPhotos()
-
         curatedPhotosViewModel.curatedPhotosLiveData.observe(this, Observer {
             var photographersName: String? = null
             val photos = it
