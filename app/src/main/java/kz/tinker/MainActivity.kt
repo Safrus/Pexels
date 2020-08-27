@@ -1,42 +1,47 @@
 package kz.tinker
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.FrameLayout
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.FragmentManager
-import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import kz.tinker.pexel.AuthorDetailsFragment
-import kz.tinker.pexel.PhotoListFragment
+import kotlinx.android.synthetic.main.activity_main.*
 import kz.tinker.pexel.R
-import kz.tinker.pexel.data.model.Photo
-import kz.tinker.pexel.ui.main.viewmodel.CuratedPhotosViewModel
-import org.koin.android.ext.android.inject
 
-
-private const val TAG = "main_activity"
 
 class MainActivity : AppCompatActivity() {
 
-    private var photoListFragment: PhotoListFragment = PhotoListFragment()
-    private var fragmentManager: FragmentManager = supportFragmentManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.AppTheme)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        addingFragment()
-        showMainFragment()
-    }
+        val itemList = ArrayList<Model>()
+        itemList.add(Model("Alan Shell", 7, 1))
+        itemList.add(Model("Romeo Boll", 8, 2))
+        itemList.add(Model("Harry Brown", 9, 3))
+        itemList.add(Model("Nikola Smith", 10, 4))
+        itemList.add(Model("Georgie Kim", 11, 5))
+        itemList.add(Model("Kana Kasteev", 12, 6))
+        itemList.add(Model("Alan Shell", 13, 19))
+        itemList.add(Model("Romeo Boll", 14, 21))
+        itemList.add(Model("Harry Brown", 15, 31))
+        itemList.add(Model("Nikola Smith", 16, 41))
+        itemList.add(Model("Georgie Kim", 17, 51))
+        itemList.add(Model("Kana Kasteev", 18, 61))
 
-    private fun addingFragment() {
-        fragmentManager.beginTransaction().add(R.id.frame, photoListFragment).commit()
-    }
+        val myAdapter = MyAdapter(itemList, this)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = myAdapter
 
-    private fun showMainFragment() {
-        fragmentManager.beginTransaction().show(photoListFragment).commit()
+        val decorator = DividerItemDecoration(applicationContext, LinearLayoutManager.VERTICAL)
+        decorator.setDrawable(
+            ContextCompat.getDrawable(
+                applicationContext,
+                R.drawable.recyclerline
+            )!!
+        )
+        recyclerView.addItemDecoration(decorator)
     }
 }
