@@ -17,7 +17,7 @@ class ItemDetail : AppCompatActivity() {
         val actionBar: ActionBar? = supportActionBar
         actionBar?.setDisplayHomeAsUpEnabled(true)
         actionBar?.setDisplayShowHomeEnabled(true)
-        var intent = intent
+        val intent = intent
         val aTitle = intent.getStringExtra("iTitle")
         val aUserView = intent.getIntExtra("iImageView", 0)
         val aImageView = intent.getIntExtra("iUserView", 0)
