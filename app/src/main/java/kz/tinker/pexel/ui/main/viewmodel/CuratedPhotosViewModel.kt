@@ -8,9 +8,9 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kz.tinker.pexel.data.model.Photo
-import kz.tinker.pexel.data.repository.CuratedPhotosRepository
+import kz.tinker.pexel.data.repository.CuratedPhotosRepositoryImpl
 
-class CuratedPhotosViewModel(private val curatedPhotosRepository: CuratedPhotosRepository) :
+class CuratedPhotosViewModel(private val curatedPhotosRepositoryImpl: CuratedPhotosRepositoryImpl) :
     ViewModel() {
 
     private val mutableCuratedPhotosLiveData = MutableLiveData<List<Photo>>()
@@ -20,7 +20,7 @@ class CuratedPhotosViewModel(private val curatedPhotosRepository: CuratedPhotosR
 
     fun getCuratedPhotos() {
         getCuratedPhotosJob = viewModelScope.launch {
-            curatedPhotosRepository.getCuratedPhotos(50, 1).collect {
+            curatedPhotosRepositoryImpl.getCuratedPhotos(50, 1).collect {
                 mutableCuratedPhotosLiveData.value = it as List<Photo>?
             }
         }
