@@ -1,13 +1,7 @@
 package kz.tinker
-
-import android.content.Context
-import android.content.Intent
-import android.media.Image
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.main_list_item.view.*
@@ -31,7 +25,7 @@ class MyAdapter(private val photoClick: PhotoClickListener) :
         return itemList.size
     }
 
-    fun setUsers(itemList: MutableList<Photo>) {
+    fun setPhoto(itemList: MutableList<Photo>) {
         this.itemList = itemList
         notifyDataSetChanged()
     }
@@ -42,12 +36,12 @@ class MyAdapter(private val photoClick: PhotoClickListener) :
 
     inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bindItems(photo: Photo) {
-            val tvUsername = itemView.findViewById<TextView>(R.id.tvUsername)
-            val ivPoster = itemView.findViewById<ImageView>(R.id.ivPoster)
-            val ivAvatar = itemView.findViewById<ImageView>(R.id.ivAvatar)
-            val ivPlus = itemView.findViewById<ImageView>(R.id.ivPlus)
+            val tvUsername = itemView.tvUsername
+            val ivPoster = itemView.ivPoster
+            val ivAvatar = itemView.ivAvatar
             tvUsername.text = photo.photographer
             Glide.with(itemView).load(photo.src.landscape).into(ivPoster)
+            Glide.with(itemView).load(photo.src.landscape).into(ivAvatar)
             itemView.setOnClickListener {
                 photoClick.photoClick(adapterPosition, photo)
             }
