@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite">
+
+        <ImageView
+            android:id="@+id/photoImageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <TextView
+            android:id="@+id/photographerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:fontFamily="sans-serif-light"
+            android:text="TextView"
+            android:textColor="#757575"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@+id/photoImageView"
+            app:layout_constraintStart_toStartOf="@+id/photoImageView"
+            app:layout_constraintTop_toBottomOf="@+id/photoImageView" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="sans-serif-light"
+            android:text="@string/download_image_text"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/photographerTextView"
+            app:layout_constraintStart_toStartOf="@+id/photographerTextView"
+            app:layout_constraintTop_toBottomOf="@+id/photographerTextView" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="@+id/textView2"
+            app:layout_constraintStart_toStartOf="@id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+            <Button
+                android:id="@+id/originalPhotoDownloadButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@drawable/button"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/originalPhoto_text"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                tools:layout_editor_absoluteX="35dp"
+                tools:layout_editor_absoluteY="368dp" />
+
+            <Button
+                android:id="@+id/largePhotoDownloadButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@drawable/button"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/largePhoto_text"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                tools:layout_editor_absoluteX="123dp"
+                tools:layout_editor_absoluteY="368dp" />
+
+            <Button
+                android:id="@+id/mediumPhotoDownloadButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@drawable/button"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/mediumPhoto_text"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                tools:layout_editor_absoluteX="211dp"
+                tools:layout_editor_absoluteY="368dp" />
+
+            <Button
+                android:id="@+id/smallPhotoDownloadButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="1dp"
+                android:background="@drawable/button"
+                android:fontFamily="sans-serif-light"
+                android:text="@string/smallPhoto_text"
+                android:textAllCaps="false"
+                android:textSize="12sp"
+                tools:layout_editor_absoluteX="299dp"
+                tools:layout_editor_absoluteY="368dp" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

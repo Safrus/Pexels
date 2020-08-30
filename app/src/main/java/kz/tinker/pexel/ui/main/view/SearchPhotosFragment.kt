@@ -10,6 +10,8 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.searched_photos_fragment.*
 import kz.tinker.pexel.R
@@ -19,11 +21,13 @@ import kz.tinker.pexel.ui.main.viewmodel.SearchedPhotosViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
-class SearchPhotosFragment : Fragment() {
+class SearchPhotosFragment : Fragment(), SearchedPhotoAdapter.PhotoClickListener {
 
     private val searchedPhotosViewModel by viewModel<SearchedPhotosViewModel>()
     private lateinit var searchedPhotoAdapter: SearchedPhotoAdapter
     private val observer = Observer<List<Photo>> { handleResponse(it) }
+    private lateinit var navController: NavController
+    private var opened: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -35,7 +39,8 @@ class SearchPhotosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        initViews(view)
+        navController = Navigation.findNavController(view)
+        initViews()
         searchedPhotosViewModel.searchedPhotosLiveData.observe(viewLifecycleOwner, observer)
         val logo: View = toolbar.getChildAt(0)
         logo.setOnClickListener {
@@ -43,9 +48,9 @@ class SearchPhotosFragment : Fragment() {
         }
         searchEditText.setOnEditorActionListener { _, actionId, _ ->
             var handled = false
-            if (actionId == EditorInfo.IME_ACTION_DONE) {
+            if (actionId == EditorInfo.IME_ACTION_NEXT) {
                 searchPhotos()
-                handled = false
+                handled = true
             }
             handled
         }
@@ -54,14 +59,17 @@ class SearchPhotosFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         searchEditText.requestFocus()
-        (activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).showSoftInput(
-            searchEditText,
-            InputMethodManager.SHOW_IMPLICIT
-        )
+        if (!opened) {
+            (activity?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager).showSoftInput(
+                searchEditText,
+                InputMethodManager.SHOW_IMPLICIT
+            )
+            opened = true
+        }
     }
 
-    private fun initViews(view: View) {
-        searchedPhotoAdapter = SearchedPhotoAdapter()
+    private fun initViews() {
+        searchedPhotoAdapter = SearchedPhotoAdapter(this)
         recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = searchedPhotoAdapter
@@ -88,5 +96,11 @@ class SearchPhotosFragment : Fragment() {
 
     private fun bindData(photos: List<Photo>) {
         searchedPhotoAdapter.submitList(photos)
+    }
+
+    override fun photoClick(position: Int, item: Photo) {
+        val action: SearchPhotosFragmentDirections.ActionSearchPhotosFragmentToPhotoDetailsFragment =
+            SearchPhotosFragmentDirections.actionSearchPhotosFragmentToPhotoDetailsFragment(item)
+        navController.navigate(action)
     }
 }

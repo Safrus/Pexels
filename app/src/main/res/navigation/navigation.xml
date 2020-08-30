@@ -3,19 +3,37 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
-    tools:ignore="UnusedNavigation"
-    app:startDestination="@id/curatedPhotosFragment">
+    app:startDestination="@id/curatedPhotosFragment"
+    tools:ignore="UnusedNavigation">
 
     <fragment
         android:id="@+id/curatedPhotosFragment"
         android:name="kz.tinker.pexel.ui.main.view.CuratedPhotosFragment"
-        android:label="CuratedPhotosFragment" >
+        android:label="CuratedPhotosFragment"
+        tools:layout="@layout/curated_photos_fragment">
         <action
             android:id="@+id/action_curatedPhotosFragment_to_searchPhotosFragment"
             app:destination="@id/searchPhotosFragment" />
+        <action
+            android:id="@+id/action_curatedPhotosFragment_to_photoDetailsFragment"
+            app:destination="@id/photoDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchPhotosFragment"
         android:name="kz.tinker.pexel.ui.main.view.SearchPhotosFragment"
-        android:label="SearchPhotosFragment" />
+        android:label="SearchPhotosFragment"
+        tools:layout="@layout/searched_photos_fragment">
+        <action
+            android:id="@+id/action_searchPhotosFragment_to_photoDetailsFragment"
+            app:destination="@id/photoDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/photoDetailsFragment"
+        android:name="kz.tinker.pexel.ui.main.view.PhotoDetailsFragment"
+        android:label="PhotoDetailsFragment"
+        tools:layout="@layout/photo_details_fragment">
+        <argument
+            android:name="photo"
+            app:argType="kz.tinker.pexel.data.model.Photo" />
+    </fragment>
 </navigation>

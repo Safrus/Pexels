@@ -1,8 +1,11 @@
 package kz.tinker.pexel.data.model
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Src(
     @SerializedName("landscape")
     val landscape: String,
@@ -20,4 +23,4 @@ data class Src(
     val small: String,
     @SerializedName("tiny")
     val tiny: String
-)
+) : Parcelable
