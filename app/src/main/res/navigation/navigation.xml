@@ -9,7 +9,8 @@
     <fragment
         android:id="@+id/curatedPhotosFragment"
         android:name="kz.tinker.pexel.ui.main.view.CuratedPhotosFragment"
-        android:label="CuratedPhotosFragment" >
+        android:label="CuratedPhotosFragment"
+        tools:layout="@layout/curated_photos_fragment">
         <action
             android:id="@+id/action_curatedPhotosFragment_to_searchPhotosFragment"
             app:destination="@id/searchPhotosFragment" />
@@ -17,5 +18,6 @@
     <fragment
         android:id="@+id/searchPhotosFragment"
         android:name="kz.tinker.pexel.ui.main.view.SearchPhotosFragment"
-        android:label="SearchPhotosFragment" />
+        android:label="SearchPhotosFragment"
+        tools:layout="@layout/searched_photos_fragment"/>
 </navigation>
