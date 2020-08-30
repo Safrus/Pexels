@@ -2,17 +2,12 @@ package kz.tinker.pexel.data.api
 
 import androidx.annotation.WorkerThread
 import kz.tinker.pexel.data.model.CuratedPhotos
-import kz.tinker.pexel.data.model.Photo
-import retrofit2.Call
+import kz.tinker.pexel.data.model.SearchedPhotos
 import retrofit2.Response
 import retrofit2.http.GET
-import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface PexelApi {
-
-    @GET("v1/photos/{id}")
-    fun getPhoto(@Path("id") id: Int): Call<Photo>
 
     @WorkerThread
     @GET("v1/curated")
@@ -20,4 +15,11 @@ interface PexelApi {
         @Query("per_page") perPage: Int,
         @Query("page") page: Int
     ): Response<CuratedPhotos>
+
+    @WorkerThread
+    @GET("v1/search")
+    suspend fun getSearchedPhotos(
+        @Query("query") query: String,
+        @Query("per_page") perPage: Int
+    ): Response<SearchedPhotos>
 }
