@@ -1,4 +1,4 @@
-package kz.tinker
+package kz.tinker.pexel.data.model
 
 data class Model(val name:String, val user:Int,  val age: Int) {
     val imageUrl="https://picsum.photos/150?random=$age"

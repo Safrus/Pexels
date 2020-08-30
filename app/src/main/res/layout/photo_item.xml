@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="10dp">
+
+    <ImageView
+        android:id="@+id/photoImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:contentDescription="TODO"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+    <com.github.abdularis.civ.CircleImageView
+        android:id="@+id/photographerImageView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="7dp"
+        android:src="@drawable/elon_musk_royal_society"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photoImageView" />
+
+    <TextView
+        android:id="@+id/photographerNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="sans-serif-light"
+        android:text="TextView"
+        android:textColor="#757575"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/photographerImageView"
+        app:layout_constraintStart_toEndOf="@+id/photographerImageView"
+        app:layout_constraintTop_toTopOf="@+id/photographerImageView" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="7dp"
+        android:background="@color/colorDarkBlack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/photographerImageView" />
+</androidx.constraintlayout.widget.ConstraintLayout>
