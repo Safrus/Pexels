@@ -3,7 +3,6 @@ package kz.tinker.pexel.ui.main.view
 import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
@@ -17,23 +16,16 @@ class MainActivity : AppCompatActivity() {
 
     private val PERMISSION_REQUEST_CODE = 1
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        if (Build.VERSION.SDK_INT >= 23) {
-            if (checkPermission()) {
-                // Code for above or equal 23 API Oriented Device
-                // Your Permission granted already .Do next code
-                permissionGranted()
-            } else {
-                requestPermission() // Code for permission
-            }
+        if (checkPermission()) {
+            // Code for above or equal 23 API Oriented Device
+            // Your Permission granted already .Do next code
+            permissionGranted()
         } else {
-            // Code for Below 23 API Oriented Device
-            // Do next code
+            requestPermission()
         }
-
     }
 
     private fun checkPermission(): Boolean {
