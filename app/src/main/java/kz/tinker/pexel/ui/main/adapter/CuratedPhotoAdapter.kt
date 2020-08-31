@@ -7,13 +7,11 @@ import androidx.recyclerview.widget.ListAdapter
 import com.bumptech.glide.Glide
 import kz.tinker.pexel.R
 import kz.tinker.pexel.data.model.Photo
-import kz.tinker.pexel.ui.main.viewholders.SearchedPhotosViewHolder
+import kz.tinker.pexel.ui.main.viewholders.CuratedPhotosViewHolder
 
-
-class SearchedPhotoAdapter(private val photoClickListener: PhotoClickListener) :
-    ListAdapter<Photo, SearchedPhotosViewHolder>(SearchPhotoDiff) {
-
-    private object SearchPhotoDiff : DiffUtil.ItemCallback<Photo>() {
+class CuratedPhotoAdapter(private val photoClickListener: PhotoClickListener) :
+    ListAdapter<Photo, CuratedPhotosViewHolder>(CuratedPhotoDiff) {
+    private object CuratedPhotoDiff : DiffUtil.ItemCallback<Photo>() {
 
         override fun areItemsTheSame(oldItem: Photo, newItem: Photo) =
             oldItem.id == newItem.id
@@ -28,15 +26,15 @@ class SearchedPhotoAdapter(private val photoClickListener: PhotoClickListener) :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): SearchedPhotosViewHolder {
-        return SearchedPhotosViewHolder(
+    ): CuratedPhotosViewHolder {
+        return CuratedPhotosViewHolder(
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.photo_item, parent, false)
         )
     }
 
     override fun onBindViewHolder(
-        holder: SearchedPhotosViewHolder,
+        holder: CuratedPhotosViewHolder,
         position: Int
     ) {
         holder.bindData(getItem(position), photoClickListener)
@@ -50,10 +48,9 @@ class SearchedPhotoAdapter(private val photoClickListener: PhotoClickListener) :
         return position.toLong()
     }
 
-    override fun onViewRecycled(holder: SearchedPhotosViewHolder) {
+    override fun onViewRecycled(holder: CuratedPhotosViewHolder) {
         super.onViewRecycled(holder)
         Glide.with(holder.ivPhoto.context)
             .clear(holder.ivPhoto)
     }
-
 }

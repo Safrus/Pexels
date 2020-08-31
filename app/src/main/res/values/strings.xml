@@ -3,4 +3,9 @@
     <string name="searchIconText">Search</string>
     <string name="search_for_photos">Search for photos…</string>
     <string name="curated_photos_fragment_text">Curated Photos Fragment</string>
+    <string name="download_image_text">Download Image</string>
+    <string name="originalPhoto_text">Original\n3456 x 4320</string>
+    <string name="largePhoto_text">Large\n1920 x 2400</string>
+    <string name="mediumPhoto_text">Medium\n1280 x 1600</string>
+    <string name="smallPhoto_text">Small\n640 x 800</string>
 </resources>

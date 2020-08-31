@@ -19,7 +19,7 @@ class SearchedPhotosViewModel(private val searchedPhotosRepositoryImpl: Searched
 
     fun getSearchedPhotos(query: String) {
         getSearchedPhotosJob = viewModelScope.launch {
-            searchedPhotosRepositoryImpl.getSearchedPhotos(query, 50).collect {
+            searchedPhotosRepositoryImpl.getSearchedPhotos(query, 80).collect {
                 mutableSearchedPhotosLiveData.value = it as List<Photo>?
             }
         }

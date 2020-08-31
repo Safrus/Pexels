@@ -20,7 +20,7 @@ class CuratedPhotosViewModel(private val curatedPhotosRepositoryImpl: CuratedPho
 
     fun getCuratedPhotos() {
         getCuratedPhotosJob = viewModelScope.launch {
-            curatedPhotosRepositoryImpl.getCuratedPhotos(50, 1).collect {
+            curatedPhotosRepositoryImpl.getCuratedPhotos(80, 1).collect {
                 mutableCuratedPhotosLiveData.value = it as List<Photo>?
             }
         }
