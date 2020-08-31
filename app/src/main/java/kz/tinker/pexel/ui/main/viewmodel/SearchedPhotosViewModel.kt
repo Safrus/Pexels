@@ -12,6 +12,7 @@ import kz.tinker.pexel.data.repository.SearchedPhotosRepositoryImpl
 
 class SearchedPhotosViewModel(private val searchedPhotosRepositoryImpl: SearchedPhotosRepositoryImpl) :
     ViewModel() {
+
     private val mutableSearchedPhotosLiveData = MutableLiveData<List<Photo>>()
     private var getSearchedPhotosJob: Job? = null
 
